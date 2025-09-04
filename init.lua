@@ -1,4 +1,3 @@
--- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -177,6 +176,7 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  { 'norcalli/nvim-colorizer.lua', opts = {} },
   {
     'stevearc/oil.nvim',
     ---@module 'oil'
@@ -199,7 +199,7 @@ require('lazy').setup({
         c = { fg = '#FFFFFF', bg = '#101010' },
       }
       local my_colors = {
-        a = { fg = '#DDFF33', bg = '#101010', gui = 'bold' },
+        a = { fg = '#FFDE33', bg = '#101010', gui = 'bold' },
         b = { fg = '#565F73', bg = '#101010' },
         c = { fg = '#FFFFFF', bg = '#101010' },
       }
@@ -254,7 +254,6 @@ require('lazy').setup({
       },
     },
   },
-
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -641,17 +640,19 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        clangd = {},
+        gopls = {},
+        pyright = {},
+        rust_analyzer = {},
+
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
+        hls = {},
         --
 
         lua_ls = {
@@ -986,7 +987,7 @@ vim.cmd.colorscheme 'gruber-darker'
 vim.api.nvim_set_hl(0, 'Normal', { bg = '#101010' })
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number'
-vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#DDFF33', bg = '#101010', bold = true })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#FFDE33', bg = '#101010', bold = true })
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#aaaaaa' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
