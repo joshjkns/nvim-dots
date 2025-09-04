@@ -11,22 +11,19 @@ vim.opt.showmode = false
 vim.opt.guicursor = 'n:block,i:ver25,r:hor20,v:block'
 vim.opt.fillchars = vim.opt.fillchars + { eob = ' ' }
 
--- Space + h opens Oil in a horizontal split
-vim.keymap.set('n', '<Space>h', function()
+-- Space + e opens Oil in a horizontal split
+vim.keymap.set('n', '<Space>e', function()
   -- Choose split type, for example horizontal:
   vim.cmd 'split' -- for vertical, use 'vsplit'
   vim.cmd 'Oil' -- run :Oil in the split
 end, { noremap = true, silent = true, desc = 'Open Oil in horizontal split' })
 
--- Space + v opens Oil in a vertical split
-vim.keymap.set('n', '<Space>v', function()
+-- Space + c opens a terminal in a horizontal split
+vim.keymap.set('n', '<Space>c', function()
   -- Choose split type, for example horizontal:
-  vim.cmd 'vsplit' -- for vertical, use 'vsplit'
-  vim.cmd 'Oil' -- run :Oil in the split
-end, { noremap = true, silent = true, desc = 'Open Oil in vertical split' })
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
-
+  vim.cmd 'split' -- for vertical, use 'vsplit'
+  vim.cmd 'term'
+end, { noremap = true, silent = true, desc = 'Open a terminal in horizontal split' })
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
